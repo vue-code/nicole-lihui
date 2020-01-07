@@ -17,7 +17,6 @@
           <v-card-text>
             <v-form
               ref="form"
-              v-model="valid"
             >
               <v-text-field
                 v-model="username"
@@ -29,6 +28,7 @@
               <v-text-field
                 label="PassWord"
                 type="password"
+                :counter="24"
                 :rules="pwRules"
               />
             </v-form>
@@ -41,8 +41,8 @@
               @click="reset"
             >Reset</v-btn>
             <v-btn
-              color="indigo"
-              dark
+              color="success"
+              @click="login"
             >Login</v-btn>
           </v-card-actions>
         </v-card>
@@ -60,7 +60,6 @@ export default Vue.extend({
   vuetify: new Vuetify(),
 
   data: () => ({
-    valid: false,
     username: '',
     nameRules: [
       v => !!v || 'Name is required',
@@ -69,9 +68,17 @@ export default Vue.extend({
     password: '',
     pwRules: [
        v => !!v || 'Password is required',
-       v => ()
+       v => (v && v.length >= 6) || 'PassWord must be more than 6 characters'
     ],
-    
-  })
+  }),
+
+  methods: {
+    reset() {
+      return this.$refs.form.reset()
+    },
+    login () {
+      alert(`Name: ${this.username} \nPassWord: ${this.password}`)
+    },
+  },
 })
 </script>
