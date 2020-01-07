@@ -1,23 +1,22 @@
 <template>
   <v-app>
-    <v-content>
-      <LocalAdd/>
-      <LoginForm/>
-    </v-content>
+    <BaseBar/>
+    
+    <v-conten>
+      <router-view></router-view>
+    </v-conten>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import LocalAdd from '@/components/LocalAdd.vue'
-import LoginForm from '@/components/LoginForm.vue'
+import BaseBar from '@/components/BaseBar.vue'
 
 export default Vue.extend({
   name: 'App',
 
   components: {
-    LocalAdd,
-    LoginForm,
+    BaseBar,
   },
 
   data: () => ({

@@ -1,11 +1,19 @@
 <template>
-  <v-container>
-    <v-row justify="center">
+  <v-container
+    class="my-12"
+    fluid
+  >
+    <v-row 
+     class="my-12"
+     justify="center"
+    >
       <v-col
         cols="12"
         md="6"
+        class="my-12"
       >
-        <v-card>
+        <v-card
+        >
           <v-toolbar
             color="indigo"
             dark
