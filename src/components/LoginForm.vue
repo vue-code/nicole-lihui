@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col
         cols="12"
-        md="10"
+        md="6"
       >
         <v-card>
           <v-toolbar
@@ -37,11 +37,13 @@
           <v-card-actions>
             <v-spacer />
             <v-btn
-              color="warning"
+              color="indigo"
+              dark
               @click="reset"
             >Reset</v-btn>
             <v-btn
-              color="success"
+              color="indigo"
+              dark
               @click="login"
             >Login</v-btn>
           </v-card-actions>
