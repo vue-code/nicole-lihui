@@ -9,7 +9,7 @@
     >
       <v-col
         cols="12"
-        md="6"
+        md="4"
         class="my-12"
       >
         <v-card
@@ -18,7 +18,6 @@
             color="indigo"
             dark
           >
-            <v-app-bar-nav-icom></v-app-bar-nav-icom>
             <v-toolbar-title>Login Form</v-toolbar-title>
           </v-toolbar>
 
@@ -64,6 +63,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import axios from 'axios'
+
+const qs = require('qs')
 
 export default Vue.extend({
   name: 'LoginForm',
@@ -80,14 +82,52 @@ export default Vue.extend({
        v => !!v || 'Password is required',
        v => (v && v.length >= 6) || 'PassWord must be more than 6 characters'
     ],
+    info: '',
+    errored: true,
+    loading: false,
   }),
-
   methods: {
     reset() {
       return this.$refs.form.reset()
     },
     login () {
-      alert(`Name: ${this.username} \nPassWord: ${this.password}`)
+      let formData = new FormData()
+      formData.set("username", this.username);
+      formData.set("password", this.password);
+      axios
+        .post('/login',
+          formData,
+          {
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        })
+        .then(response => {
+          this.info = response.data
+          alert(this.info)
+        })
+        .catch(error => {
+          console.log(error)
+          this.errored = true
+        })
+        .finally(() => this.loading = false)
+      // axios({
+      //     method: 'post',
+      //     url: 'http://localhost:8080/login',
+      //     data: qs.stringify({
+      //       username: this.username,
+      //       password: this.password
+      //     }),
+      //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+      //   })
+      //   .then(response => {
+      //     this.info = String(response)
+      //     alert(this.info)
+      //   })
+      //   .catch(error => {
+      //     console.log(error)
+      //     this.errored = true
+      //   })
+      //   .finally(() => this.loading = false)
+
     },
   },
 })

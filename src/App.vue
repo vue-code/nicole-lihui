@@ -1,10 +1,9 @@
 <template>
   <v-app>
     <BaseBar/>
-    
-    <v-conten>
+    <v-content>
       <router-view></router-view>
-    </v-conten>
+    </v-content>
   </v-app>
 </template>
 

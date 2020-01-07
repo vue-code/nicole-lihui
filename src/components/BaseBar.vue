@@ -26,7 +26,7 @@
 
     <v-spacer></v-spacer>
     <v-btn
-      href="/login"
+      href="/alogin"
       target="_blank"
       text
     >

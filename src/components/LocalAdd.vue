@@ -37,7 +37,8 @@
 
               <v-col 
                 cols="12"
-                md="1"  
+                md="1" 
+                align-self="center" 
               >
                 <span>+</span>
               </v-col>
@@ -54,7 +55,8 @@
 
               <v-col 
                 cols="12"
-                md="1"  
+                md="1"
+                align-self="center"   
               >
                 <span>=</span>
               </v-col>
