@@ -11,20 +11,25 @@
             dark
           >
             <v-app-bar-nav-icom></v-app-bar-nav-icom>
-            <v-toolbar-title>Login form</v-toolbar-title>
+            <v-toolbar-title>Login Form</v-toolbar-title>
           </v-toolbar>
 
           <v-card-text>
-            <v-form>
+            <v-form
+              ref="form"
+              v-model="valid"
+            >
               <v-text-field
-                label="Login"
-                name="login"
-                type="text"
+                v-model="username"
+                :counter="10"
+                :rules="nameRules"
+                label="UserName"
+                required
               />
               <v-text-field
-                label="Password"
-                name="password"
+                label="PassWord"
                 type="password"
+                :rules="pwRules"
               />
             </v-form>
           </v-card-text>
@@ -32,8 +37,8 @@
           <v-card-actions>
             <v-spacer />
             <v-btn
-              color="indigo"
-              dark
+              color="warning"
+              @click="reset"
             >Reset</v-btn>
             <v-btn
               color="indigo"
@@ -48,8 +53,25 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import Vuetify from 'vuetify'
+
 export default Vue.extend({
   name: 'LoginForm',
+  vuetify: new Vuetify(),
 
+  data: () => ({
+    valid: false,
+    username: '',
+    nameRules: [
+      v => !!v || 'Name is required',
+      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+    ],
+    password: '',
+    pwRules: [
+       v => !!v || 'Password is required',
+       v => ()
+    ],
+    
+  })
 })
 </script>
