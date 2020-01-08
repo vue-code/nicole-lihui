@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+// import LoginForm from '@/components/LoginForm.vue'
+import LocalAdd from '@/components/LocalAdd.vue'
 
 Vue.use(VueRouter)
 
@@ -9,6 +11,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/add',
+    name: 'add',
+    component: LocalAdd
   },
   {
     path: '/about',

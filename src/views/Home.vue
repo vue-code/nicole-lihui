@@ -1,18 +1,15 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <!-- <LocalAdd/> -->
+    <v-content></v-content>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+// import LocalAdd from '@/components/LocalAdd.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    // LocalAdd,
   }
 }
 </script>
