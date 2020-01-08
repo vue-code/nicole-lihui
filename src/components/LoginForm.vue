@@ -71,8 +71,6 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import axios from 'axios'
 
-const qs = require('qs')
-
 export default Vue.extend({
   name: 'LoginForm',
   vuetify: new Vuetify(),

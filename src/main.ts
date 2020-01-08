@@ -5,9 +5,8 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueAxios from 'vue-axios'
 import axios from 'axios'
-import qs from 'qs'
 
-Vue.use(VueAxios, axios, qs)
+Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 new Vue({
