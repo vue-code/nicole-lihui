@@ -16,7 +16,6 @@
       "mocha",
       "chai",
       "vuetify",
-      "qs"
     ],
     "paths": {
       "@/*": [

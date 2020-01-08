@@ -26,11 +26,11 @@
 
     <v-spacer></v-spacer>
     <v-btn
-      href="/alogin"
+      href="/add"
       target="_blank"
       text
     >
-      <span class="mr-2">Login</span>
+      <span class="mr-2">Add</span>
       <v-icon>mdi-open-in-new</v-icon>
     </v-btn>
 

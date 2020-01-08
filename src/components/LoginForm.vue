@@ -27,16 +27,14 @@
             >
               <v-text-field
                 v-model="username"
-                :counter="10"
-                :rules="nameRules"
                 label="UserName"
                 required
               />
               <v-text-field
+                v-model="password"
                 label="PassWord"
                 type="password"
-                :counter="24"
-                :rules="pwRules"
+                required
               />
             </v-form>
           </v-card-text>
@@ -57,6 +55,14 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row>
+      <v-btn
+        color="indigo"
+        dark
+        @click="test"
+      >Test</v-btn>
+      <div class="mx-12">Test Result : {{ info }}</div>
+    </v-row>
   </v-container>
 </template>
 
@@ -73,61 +79,35 @@ export default Vue.extend({
 
   data: () => ({
     username: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
     password: '',
-    pwRules: [
-       v => !!v || 'Password is required',
-       v => (v && v.length >= 6) || 'PassWord must be more than 6 characters'
-    ],
     info: '',
-    errored: true,
-    loading: false,
+    // errored: true,
+    // loading: false,
   }),
   methods: {
-    reset() {
-      return this.$refs.form.reset()
+    test() {
+      axios
+      .post('/api')
+        .then(response => {
+          //  alert(response.data)
+          this.info = response.data
+        });
+      //
     },
     login () {
       let formData = new FormData()
       formData.set("username", this.username);
       formData.set("password", this.password);
       axios
-        .post('/login',
+        .post('/api/login',
           formData,
           {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(response => {
+          //  alert(response.data)
           this.info = response.data
-          alert(this.info)
-        })
-        .catch(error => {
-          console.log(error)
-          this.errored = true
-        })
-        .finally(() => this.loading = false)
-      // axios({
-      //     method: 'post',
-      //     url: 'http://localhost:8080/login',
-      //     data: qs.stringify({
-      //       username: this.username,
-      //       password: this.password
-      //     }),
-      //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-      //   })
-      //   .then(response => {
-      //     this.info = String(response)
-      //     alert(this.info)
-      //   })
-      //   .catch(error => {
-      //     console.log(error)
-      //     this.errored = true
-      //   })
-      //   .finally(() => this.loading = false)
-
+        });
     },
   },
 })

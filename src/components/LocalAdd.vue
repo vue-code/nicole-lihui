@@ -14,7 +14,6 @@
           color="indigo"
           dark
         >
-          <v-app-bar-nav-icom></v-app-bar-nav-icom>
           <v-toolbar-title>Add Function</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-btn icon>
@@ -22,8 +21,8 @@
           </v-btn>
         </v-toolbar>
         
-        <v-form v-model="addfrom">
-          <v-cantainer>
+        <v-form>
+          <v-container>
             <v-row justify="center">
               <v-col 
                 cols="12"
@@ -71,7 +70,7 @@
                 ></v-text-field>
               </v-col>
             </v-row>
-          </v-cantainer>
+          </v-container>
         </v-form>
       </v-card>
     </v-row>

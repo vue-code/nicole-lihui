@@ -1,14 +1,15 @@
 <template>
-    <LocalAdd/>
+    <!-- <LocalAdd/> -->
+    <v-content></v-content>
 </template>
 
 <script>
-import LocalAdd from '@/components/LocalAdd.vue'
+// import LocalAdd from '@/components/LocalAdd.vue'
 
 export default {
   name: 'home',
   components: {
-    LocalAdd,
+    // LocalAdd,
   }
 }
 </script>
