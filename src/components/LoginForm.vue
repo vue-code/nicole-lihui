@@ -85,6 +85,9 @@ export default Vue.extend({
     // loading: false,
   }),
   methods: {
+    reset() {
+      //
+    },
     test() {
       axios
       .post('/api')
